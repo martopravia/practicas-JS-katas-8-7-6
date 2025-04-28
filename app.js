@@ -434,3 +434,46 @@ function replaceStr(str) {
   return result;
 }
 console.log(replaceStr("Hola Mundo"));
+
+function countVocals(str) {
+  let count = 0;
+  for (let i = 0; i < str.length; i++) {
+    if (
+      str[i].toLowerCase() === "a" ||
+      str[i].toLowerCase() === "e" ||
+      str[i].toLowerCase() === "i" ||
+      str[i].toLowerCase() === "o" ||
+      str[i].toLowerCase() === "u"
+    ) {
+      count = count + 1;
+    }
+  }
+  return count;
+}
+console.log(countVocals("Hola Pepe"));
+console.log(countVocals("hkhjk"));
+
+function countVocalS(str) {
+  return str
+    .split("")
+    .filter((letter) => "aeiou".includes(letter.toLowerCase())).length;
+}
+console.log(countVocalS("Hola Pepe"));
+console.log(countVocalS("hkhjk"));
+
+function mayorQue5(arr) {
+  return arr.filter((num) => num > 5).length;
+}
+
+console.log(mayorQue5([2, 6, 7, 8, 3]));
+
+function mayores(str) {
+  let max = 0;
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] > 5) {
+      max = max + 1;
+    }
+  }
+  return max;
+}
+console.log(mayorQue5([2, 6, 7, 8, 3]));
