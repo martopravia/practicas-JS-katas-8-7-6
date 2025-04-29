@@ -477,3 +477,237 @@ function mayores(str) {
   return max;
 }
 console.log(mayorQue5([2, 6, 7, 8, 3]));
+
+// ejercicios KYU 7
+
+function sumPositives(arr) {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > 0) {
+      sum = sum + arr[i];
+    }
+  }
+  return sum;
+}
+console.log(sumPositives([-2, -4, -6, 1, 7]));
+
+function sumPositives(arr) {
+  return arr.filter((num) => num > 0).reduce((acc, num) => acc + num, 0);
+}
+console.log(sumPositives([-2, -4, -6, 1, 7]));
+
+function sumPositives(arr) {
+  return arr.filter((num) => num > 0).reduce((acc, sum) => acc + sum, 0);
+}
+console.log(sumPositives([-2, -4, -6, 10, 70]));
+
+function palindrome(str) {
+  return str.toLowerCase() === str.toLowerCase().split("").reverse().join("");
+}
+console.log(palindrome("Alola"));
+console.log(palindrome("opa"));
+
+function palindromeT(str) {
+  for (let i = 0; i < str.length / 2; i++) {
+    if (str[i].toLowerCase() !== str[str.length - 1 - i].toLowerCase()) {
+      return false;
+    }
+  }
+  return true;
+}
+console.log(palindromeT("Alola"));
+console.log(palindromeT("opa"));
+
+function equal(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] !== arr[0]) {
+      return false;
+    }
+  }
+  return true;
+}
+console.log(equal([2, 2, 2]));
+console.log(equal([2, 3, 2]));
+
+function equal(arr) {
+  return arr.every((num) => num === arr[0]);
+}
+console.log(equal([2, 2, 2]));
+console.log(equal([2, 3, 2]));
+
+function ends(str, end) {
+  return str.endsWith(end);
+}
+
+console.log(ends("Hello World", "World"));
+console.log(ends("Hello World", "PEPe"));
+
+function ends(str, end) {
+  if (end.length > str.length) {
+    return false;
+  }
+  for (let i = 0; i < end.length; i++) {
+    if (str[str.length - end.length + i] !== end[i]) {
+      return false;
+    }
+  }
+  return true;
+}
+console.log(ends("Hello World", "World"));
+console.log(ends("Hello World", "PEPe"));
+
+function ends(str, end) {
+  if (end.length > str.lenght) {
+    return false;
+  }
+  for (let i = 0; i < end.length; i++) {
+    if (str[str.length - end.length + i] !== end[i]) {
+      return false;
+    }
+  }
+  return true;
+}
+
+function capitalize4(str) {
+  return str
+    .split(" ")
+    .map((word) => word[0].toUpperCase() + word.slice(1))
+    .join(" ");
+}
+console.log(capitalize4("hola mundo"));
+
+function capitalize3(str) {
+  let words = str.split(" ");
+  let result = [];
+  for (let i = 0; i < words.length; i++) {
+    result.push(words[i][0].toUpperCase() + words[i].slice(1));
+  }
+  return result.join(" ");
+}
+console.log(capitalize3("hola mundo"));
+
+function capitalize2(str) {
+  let cap = str.split(" ").map((word) => word[0].toUpperCase() + word.slice(1));
+  return cap.join(" ");
+}
+console.log(capitalize2("hola mundo"));
+
+function capitalize1(str) {
+  let words = str.split(" ");
+  let result = [];
+  for (let i = 0; i < words.length; i++) {
+    result.push(words[i][0].toUpperCase() + words[i].slice(1));
+  }
+  return result.join(" ");
+}
+console.log(capitalize1("hola mundo"));
+
+function capitalize5(str) {
+  let cap = str.split(" ").map((word) => word[0].toUpperCase() + word.slice(1));
+  return cap.join(" ");
+}
+console.log(capitalize5("chau mundo"));
+
+function invert(arr) {
+  return arr.slice().reverse();
+}
+console.log(invert([1, 2, 3]));
+
+function invert1(arr) {
+  let final = [];
+  for (let i = arr.length - 1; i >= 0; i--) {
+    final += arr[i];
+  }
+  return final;
+}
+console.log(invert([1, 2, 3]));
+
+function duplicate(str) {
+  let dupla = str.split("").map((letter) => letter + letter);
+  return dupla.join("");
+}
+console.log(duplicate("hola"));
+
+function duplicate(str) {
+  let result = "";
+  for (let i = 0; i < str.length; i++) {
+    result += str[i] + str[i];
+  }
+  return result;
+}
+console.log(duplicate("hola"));
+
+function countVocals(str) {
+  return str
+    .split("")
+    .filter((letter) => "aeiou".includes(letter.toLowerCase())).length;
+}
+console.log(countVocals("Hola"));
+console.log(countVocals("Andabamos"));
+
+function countVocals2(str) {
+  let count = 0;
+  for (let i = 0; i < str.length; i++) {
+    if (
+      str[i] === "a" ||
+      str[i] === "e" ||
+      str[i] === "i" ||
+      str[i] === "o" ||
+      str[i] === "u"
+    ) {
+      count++;
+    }
+  }
+  return count;
+}
+console.log(countVocals("Hola"));
+console.log(countVocals("Andabamos"));
+
+function impar(arr) {
+  return arr.find((num) => arr.filter((n) => n === num).length % 2 !== 0);
+}
+console.log(impar([1, 2, 2, 3, 1]));
+
+function impar2(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    let count = 0;
+    for (let j = 0; j < arr.length; j++) {
+      if (arr[i] === arr[j]) {
+        count++;
+      }
+      if (count % 2 !== 0) {
+        return arr[i];
+      }
+    }
+  }
+}
+console.log(impar([1, 2, 3, 3, 1]));
+
+function square(str) {
+  return Number(
+    str
+      .toString()
+      .split("")
+      .map((num) => num * num)
+      .join("")
+  );
+}
+console.log(square(9119));
+
+function square2(str) {
+  let double = [];
+  let strToNum = Number(str);
+  for (let i = 0; i < strToNum.length; i++) {
+    double += strToNum[i] * strToNum[i];
+  }
+  return double;
+}
+console.log(square(9119));
+
+function sumPos(arr) {
+  return arr
+    .slice("")
+    .filter((num) => num > 0)
+    .reduce((acc, num) => acc + num, 0);
+}
+console.log(sumPos([1, -4, 7, 12]));
