@@ -711,3 +711,88 @@ function sumPos(arr) {
     .reduce((acc, num) => acc + num, 0);
 }
 console.log(sumPos([1, -4, 7, 12]));
+
+function sumPos2(arr) {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > 0) {
+      sum += arr[i];
+    }
+  }
+  return sum;
+}
+console.log(sumPos([1, -4, 7, 12]));
+
+function minNumber(arr) {
+  return Math.min(...arr);
+}
+console.log(minNumber([1, -4, 7, 12]));
+
+function minNumber2(arr) {
+  let min = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] < min) {
+      min = arr[i];
+    }
+  }
+  return min;
+}
+console.log(minNumber([1, -4, 7, 12]));
+
+function multiply(arr, num) {
+  return arr.map((n) => n * num);
+}
+console.log(multiply([1, 2, 3], 2));
+
+function multiply(arr, num) {
+  let double = [];
+  for (let i = 0; i < arr.length; i++) {
+    double.push(arr[i] * num);
+  }
+  return double;
+}
+console.log(multiply([1, 2, 3], 2));
+
+function palindorome(str) {
+  return str === str.split("").reverse().join("");
+}
+console.log(palindrome("alola"));
+console.log(palindrome("alo hawai"));
+
+function palindrome(str) {
+  for (let i = 0; i < str.length / 2; i++) {
+    if (str[i] !== str[str.length - 1 - i]) {
+      return false;
+    }
+  }
+  return true;
+}
+console.log(palindrome("alola"));
+console.log(palindrome("alo hawai"));
+
+function palindrome3(str) {
+  for (let i = 0; i < str.length / 2; i++) {
+    if (str[i] !== str[str.length - 1 - i]) {
+      return false;
+    }
+  }
+  return true;
+}
+console.log(palindrome("alola"));
+console.log(palindrome("alo hawai"));
+
+function countEvens(arr) {
+  return arr.filter((num) => num % 2 === 0).length;
+}
+console.log(countEvens([1, 2, 3, 4, 5, 6]));
+
+function countEvens2(arr) {
+  let count = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] % 2 === 0) {
+      count += 1;
+    }
+  }
+  return count;
+}
+console.log(countEvens([1, 2, 3, 4, 5, 6]));
