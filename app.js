@@ -796,3 +796,267 @@ function countEvens2(arr) {
   return count;
 }
 console.log(countEvens([1, 2, 3, 4, 5, 6]));
+
+function findNumbers(arr) {
+  return arr.find((num) => arr.filter((n) => n !== num));
+}
+console.log(findNumbers([4, 1, 2, 1, 2]));
+
+function findNumbers2(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    let count = 0;
+    for (let j = 0; j < arr.length; j++) {
+      if (arr[i] === arr[j]) {
+        count++;
+      }
+    }
+    if (count === 1) {
+      return arr[i];
+    }
+  }
+}
+console.log(findNumbers2([4, 1, 2, 1, 2, 4, 3]));
+
+function findNumbers3(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    let count = 0;
+    for (let j = 0; j < arr.length; j++) {
+      if (arr[i] === arr[j]) {
+        count++;
+      }
+    }
+    if (count === 1) {
+      return arr[i];
+    }
+  }
+}
+console.log(findNumbers3([4, 1, 2, 1, 2, 4, 3, 3, 7]));
+
+function anagram(arr) {
+  let grupos = {};
+  for (let i = 0; i < arr.length; i++) {
+    let palabra = arr[i];
+    let ordenada = palabra.split("").sort().join("");
+
+    if (grupos[ordenada] === undefined) {
+      grupos[ordenada] = [palabra];
+    } else {
+      grupos[ordenada].push(palabra);
+    }
+  }
+  let resultado = [];
+  for (let clave in grupos) {
+    resultado.push(grupos[clave]);
+  }
+  return resultado;
+}
+console.log(anagram(["bat", "tab", "tap", "pat"]));
+
+function groupAnagrams(words) {
+  let map = {};
+  for (let word of words) {
+    let key = word.split("").sort().join("");
+    if (!map[key]) {
+      map[key] = [];
+    }
+    map[key].push(word);
+  }
+  return Object.values(map);
+}
+console.log(groupAnagrams(["bat", "tab", "tap", "pat"]));
+
+function groupAnagram3(words) {
+  let group = {};
+  for (let word of words) {
+    let key = word.split("").sort().join("");
+    if (!group[key]) {
+      group[key] = [];
+    }
+    group[key].push(word);
+  }
+  return Object.values(group);
+}
+console.log(groupAnagram3(["bat", "tab", "tap", "pat"]));
+
+function diference(arr1, arr2) {
+  return arr1.filter((x) => !arr2.includes(x));
+}
+console.log(diference([1, 2, 2, 3], [2]));
+
+function diference2(arr1, arr2) {
+  let result = [];
+  for (let i = 0; i < arr1.length; i++) {
+    if (!arr2.includes(arr1[i])) {
+      result.push(arr1[i]);
+    }
+  }
+  return result;
+}
+console.log(diference2([1, 2, 2, 3], [2]));
+
+function diference3(arr1, arr2) {
+  let result = [];
+  for (let i = 0; i < arr1.length; i++) {
+    if (!arr2.includes(arr1[i])) {
+      result.push(arr1[i]);
+    }
+  }
+  return result;
+}
+console.log(diference3([1, 2, 2, 3], [2, 3]));
+
+function difArr(arr1, arr2) {
+  return arr1.filter((x) => !arr2.includes(x));
+}
+console.log(difArr([7, 2, 2, 3], [2, 3]));
+
+function difArr4(arr1, arr2) {
+  let result = [];
+  for (let i = 0; i < arr1.length; i++) {
+    if (!arr2.includes(arr1[i])) {
+      result.push(arr1[i]);
+    }
+  }
+  return result;
+}
+console.log(difArr4([7, 2, 2, 3], [2, 3]));
+
+function sortArr(arr) {
+  const impar = arr.filter((x) => x % 2).sort((a, b) => a - b);
+  return arr.map((x) => (x % 2 ? impar.shift() : x));
+}
+console.log(sortArr([5, 3, 2, 8, 1, 4]));
+
+// [5, 3, 2, 8, 1, 4] → [1, 3, 2, 8, 5, 4]
+
+function sortArr(arr) {
+  const impar = arr.filter((x) => x % 2).sort((a, b) => a - b);
+  return arr.map((x) => (x % 2 ? impar.shift() : x));
+}
+console.log(sortArr([7, 5, 2, 3, 1, 4]));
+
+function sort2(arr) {
+  let impar = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] % 2 !== 0) {
+      impar.push(arr[i]);
+    }
+  }
+  impar.sort((a, b) => a - b);
+  let result = [];
+  let imparIndex = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] % 2 !== 0) {
+      result.push(impar[imparIndex]);
+      imparIndex++;
+    } else {
+      result.push(arr[i]);
+    }
+  }
+  return result;
+}
+console.log(sort2([7, 5, 2, 3, 1, 4, 9, 12, 11]));
+
+function sortImp(arr) {
+  let impar = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] % 2 !== 0) {
+      impar.push(arr[i]);
+    }
+  }
+  impar.sort((a, b) => a - b);
+  let result = [];
+  let indexImpar = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] % 2 !== 0) {
+      result.push(impar[indexImpar]);
+      indexImpar++;
+    } else {
+      result.push(arr[i]);
+    }
+  }
+  return result;
+}
+console.log(sort2([7, 5, 2, 3, 1, 4, 9, 12, 11]));
+
+// "abcdef" → ["AbCdEf", "aBcDeF"]
+
+function capitalizeArr(arr) {
+  let par = arr
+    .split("")
+    .map((char, index) => (index % 2 === 0 ? char.toUpperCase() : char))
+    .join("");
+  let impar = arr
+    .split("")
+    .map((char, index) => (index % 2 !== 0 ? char.toUpperCase() : char))
+    .join("");
+  return [par, impar];
+}
+console.log(capitalizeArr("abcdef"));
+
+function capitalizeArr2(arr) {
+  let par = "";
+  let impar = "";
+  for (let i = 0; i < arr.length; i++) {
+    if (i % 2 === 0) {
+      par += arr[i].toUpperCase();
+      impar += arr[i];
+    } else {
+      impar += arr[i].toUpperCase();
+      par += arr[i];
+    }
+  }
+  return [par, impar];
+}
+console.log(capitalizeArr("abcdef"));
+
+// ("hello", "el") → "hlo"
+
+function deleteSecond(str1, str2) {
+  return str1
+    .split("")
+    .filter((x) => !str2.includes(x))
+    .join("");
+}
+console.log(deleteSecond("hello", "el"));
+
+function deleteSecond2(str1, letters) {
+  let result = "";
+  for (let i = 0; i < str1.length; i++) {
+    if (!letters.includes(str[i])) {
+      result += str[i];
+    }
+  }
+  return result;
+}
+console.log(deleteSecond("hello", "el"));
+
+// [1,2,3] [4,5,6] → [1,4,2,5,3,6]
+function intercalate(arr1, arr2) {
+  let result = [];
+  for (let i = 0; i < arr1.length; i++) {
+    result.push(arr1[i], arr2[i]);
+  }
+  return result;
+}
+console.log(intercalate([1, 2, 3], [4, 5, 6]));
+
+// "abacabad" → "c"
+function notRepeat(str) {
+  return (
+    str
+      .split("")
+      .find((letter) => str.indexOf(letter) === str.lastIndexOf(letter)) || null
+  );
+}
+console.log(notRepeat("abacabad"));
+
+function notRepeat2(str) {
+  for (let i = 0; i < str.length; i++) {
+    if (str.indexOf(str[i]) === str.lastIndexOf(str[i])) {
+      return str[i];
+    }
+  }
+  return null;
+}
+console.log(notRepeat("abraTadabra"));
