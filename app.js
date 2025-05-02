@@ -1060,3 +1060,42 @@ function notRepeat2(str) {
   return null;
 }
 console.log(notRepeat("abraTadabra"));
+
+function maxSum(arr) {
+  let max = 0;
+  let currentSum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    currentSum = Math.max(0, currentSum + arr[i]);
+    max = Math.max(max, currentSum);
+  }
+  return max;
+}
+console.log(maxSum([-2, 1, -3, 4, -1, 2, 1, -5, 4]));
+
+function maxSum2(arr) {
+  let max = 0;
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum = Math.max(0, sum + arr[i]);
+    max = Math.max(max, sum);
+  }
+  return max;
+}
+console.log(maxSum2([-2, 1, -3, 4, -1, 2, 1, -5, 4]));
+
+// "(())()" → true
+// "(()" → false
+
+function balance(str) {
+  let count = 0;
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === "(") {
+      count++;
+    } else if (str[i] === ")") {
+      count--;
+    } else if (count < 0) return false;
+  }
+  return count === 0;
+}
+console.log(balance("(())"));
+console.log(balance("(())))"));
